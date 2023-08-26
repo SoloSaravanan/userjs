@@ -75,7 +75,7 @@ user_pref("network.protocol-handler.external.apt+http",true);
 // Quality of life stuff
 user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.aboutConfig.showWarning", false);
-user_pref("browser.toolbars.bookmarks.visibility", "never");
+// user_pref("browser.toolbars.bookmarks.visibility", "never");
 user_pref("browser.tabs.firefox-view", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
@@ -190,7 +190,7 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("extensions.shield-recipe-client.enabled", false);
 // Canvas fingerprint protection
 // This also enables useragent spoofing
-user_pref("privacy.resistFingerprinting", true);
+//user_pref("privacy.resistFingerprinting", true);
 user_pref("webgl.disabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
@@ -293,8 +293,8 @@ user_pref("media.gmp-manager.url", "");
 user_pref("media.gmp-manager.updateEnabled", false);
 user_pref("media.gmp-provider.enabled", false);
 // Don't install openh264 codec
-user_pref("media.gmp-gmpopenh264.enabled", false);
-user_pref("media.gmp-eme-adobe.enabled", false);
+/* user_pref("media.gmp-gmpopenh264.enabled", false);
+user_pref("media.gmp-eme-adobe.enabled", false); */
 
 //Disable middle click content load
 //Avoid loading urls by mistake 
@@ -413,3 +413,29 @@ user_pref("browser.contentblocking.report.vpn-promo.url", "");
 user_pref("browser.contentblocking.report.vpn-android.url", "");
 user_pref("browser.contentblocking.report.vpn-ios.url", "");
 user_pref("browser.privatebrowsing.promoEnabled", false);
+
+// Restore previous session after reboot
+user_pref("browser.startup.page", 3);
+
+// Downloads
+user_pref("browser.download.useDownloadDir", true);
+user_pref("browser.download.alwaysOpenPanel", true);
+user_pref("browser.download.manager.addToRecentDocs", false);
+user_pref("browser.download.always_ask_before_handling_new_types", false);
+
+// Passwords
+user_pref("_user.js.parrot", "0900 syntax error: the parrot's expired!");
+user_pref("signon.autofillForms", false);
+user_pref("signon.formlessCapture.enabled", false);
+user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("signon.rememberSignons", false);
+
+// Disable Form Autofill
+user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.creditCards.enabled", false);
+
+//Enable DRM content (EME: Encryption Media Extension)
+user_pref("media.eme.enabled", true);
+
+// Blank homepage
+user_pref("browser.startup.homepage", "about:blank");
