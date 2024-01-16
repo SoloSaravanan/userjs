@@ -439,3 +439,10 @@ user_pref("media.eme.enabled", true);
 
 // Blank homepage
 user_pref("browser.startup.homepage", "about:blank");
+
+//Enable Hardware Video Acceleration
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.ffvpx.enabled", false);
+
+//Disable AV1 codec
+user_pref("media.av1.enabled ", false);
