@@ -446,3 +446,17 @@ user_pref("media.ffvpx.enabled", false);
 
 //Disable AV1 codec
 user_pref("media.av1.enabled ", false);
+
+//Disable some Telemetry
+user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
+user_pref("toolkit.telemetry.pioneerId", "");
+user_pref("privacy.partition.network_state", true);
+user_pref("toolkit.telemetry.log.level", "Fatal");
+user_pref("toolkit.telemetry.log.dump", "Fatal");
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.prioping.enabled", false);
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.cachedClientID", "");
