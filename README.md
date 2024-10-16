@@ -20,7 +20,7 @@ Just simply disabling telemetry in the settings is not enough anymore, Firefox w
 WARNING: This will remove everything from your default profile.
 
 ```
-git clone https://github.com/SoloSaravanan/user.js
+git clone --depth=1 https://github.com/SoloSaravanan/user.js
 cd user.js
 ./install.sh
 ```
