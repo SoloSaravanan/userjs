@@ -460,3 +460,21 @@ user_pref("toolkit.telemetry.newProfilePing.enabled", false);
 user_pref("toolkit.telemetry.prioping.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
+
+/* Firefox One theme */
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("svg.context-properties.content.enabled", true);
+user_pref("layout.css.color-mix.enabled", true);
+user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
+user_pref("layout.css.backdrop-filter.enabled", true);
+user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+user_pref("privacy.userContext.enabled", true);
+user_pref("privacy.userContext.ui.enabled", true);
+user_pref("privacy.userContext.longPressBehavior", 2);
+user_pref("firefoxone.style_without_leftsidebar", true);
+user_pref("firefoxone.selected_tab_gradient_border", true);
+user_pref("firefoxone.main-image", true);
+user_pref("firefoxone.rhythm_sound_tab", true);
+user_pref("firefoxone.without-default-colors", true);
+user_pref("firefoxone.image_in_menus", true);
