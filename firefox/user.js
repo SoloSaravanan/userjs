@@ -168,11 +168,11 @@ user_pref("browser.newtabpage.directory.source", "");
 user_pref("browser.newtabpage.directory.ping", "");
 user_pref("browser.newtabpage.introShown", true);
 // Disable tracking protection since it makes you stick out
-user_pref("privacy.trackingprotection.enabled", false);
-user_pref("privacy.trackingprotection.pbmode.enabled", false);
-user_pref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256,content-track-digest256");
-user_pref("privacy.donottrackheader.enabled", false);
-user_pref("privacy.trackingprotection.introURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/tracking-protection/start/");
+//user_pref("privacy.trackingprotection.enabled", false);
+//user_pref("privacy.trackingprotection.pbmode.enabled", false);
+//user_pref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256,content-track-digest256");
+//user_pref("privacy.donottrackheader.enabled", false);
+//user_pref("privacy.trackingprotection.introURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/tracking-protection/start/");
 // Disable geolocation
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
