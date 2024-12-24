@@ -218,7 +218,7 @@ user_pref("media.eme.apiVisible", false);
 user_pref("identity.fxaccounts.enabled", false);
 
 // WebRTC
-user_pref("media.peerconnection.enabled", true);
+user_pref("media.peerconnection.enabled", false);
 // Don't reveal your internal IP when WebRTC is enabled
 user_pref("media.peerconnection.ice.no_host", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
