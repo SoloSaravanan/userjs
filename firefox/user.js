@@ -429,7 +429,7 @@ user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", false);
 
 // Disable AV1 codec
-// user_pref("media.av1.enabled", false);
+user_pref("media.av1.enabled", false);
 
 // Disable some Telemetry
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
@@ -577,3 +577,5 @@ user_pref("extensions.quarantinedDomains.enabled", true);
 user_pref("browser.urlbar.showSearchTerms.enabled", false);
 user_pref("security.family_safety.mode", 0);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("widget.dmabuf.force-enabled", true);
