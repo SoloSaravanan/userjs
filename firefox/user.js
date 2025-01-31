@@ -577,5 +577,3 @@ user_pref("extensions.quarantinedDomains.enabled", true);
 user_pref("browser.urlbar.showSearchTerms.enabled", false);
 user_pref("security.family_safety.mode", 0);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("widget.dmabuf.force-enabled", true);
