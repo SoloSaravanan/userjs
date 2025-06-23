@@ -14,15 +14,8 @@ user_pref("network.http.proxy.pipelining", true);
 user_pref("network.http.pipelining.maxrequests", 10);
 user_pref("nglayout.initialpaint.delay", 0);
 
-// Disable third party cookies
-user_pref("network.cookie.cookieBehavior", 1);
-
 //privacy.firstparty.isolate
 user_pref("privacy.firstparty.isolate", true);
-
-// Tor
-user_pref("network.proxy.socks", "127.0.0.1");
-user_pref("network.proxy.socks_port", 9050);
 
 // Extensions cannot be updated without permission
 user_pref("extensions.update.enabled", false);
@@ -311,7 +304,7 @@ user_pref("browser.user_preferences.moreFromMozilla", false);
 
 // Disable hardware acceleration
 //user_pref("layers.acceleration.disabled", false);
-user_pref("gfx.direct2d.disabled", true);
+//user_pref("gfx.direct2d.disabled", true);
 
 // Disable SSDP
 user_pref("browser.casting.enabled", false);
@@ -367,7 +360,7 @@ user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
 user_pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "");
 
 // Enable xrender
-user_pref("gfx.xrender.enabled", true);
+//user_pref("gfx.xrender.enabled", true);
 
 // Disable push notifications 
 user_pref("dom.webnotifications.enabled", false); 
