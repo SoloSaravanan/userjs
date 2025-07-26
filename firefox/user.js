@@ -441,11 +441,8 @@ user_pref("toolkit.telemetry.cachedClientID", "");
 /* Firefox One theme */
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("svg.context-properties.content.enabled", true);
-user_pref("layout.css.color-mix.enabled", true);
 user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
-user_pref("layout.css.backdrop-filter.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 user_pref("privacy.userContext.longPressBehavior", 2);
@@ -455,6 +452,10 @@ user_pref("firefoxone.main-image", true);
 user_pref("firefoxone.rhythm_sound_tab", true);
 user_pref("firefoxone.without-default-colors", true);
 user_pref("firefoxone.image_in_menus", true);
+user_pref("browser.tabs.allow_transparent_browser", true);
+// enable dark-mode
+user_pref("browser.in-content.dark-mode", true);
+user_pref("ui.systemUsesDarkTheme", 1);
 
 // Librewolf prefs
 user_pref("browser.newtabpage.enabled", false);
