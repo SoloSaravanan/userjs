@@ -1,9 +1,9 @@
 #!/bin/sh
 
 pkill firefox
-rm -rf $HOME/.mozilla/firefox/*.default-release/*
-cp -r firefox/* $HOME/.mozilla/firefox/*.default-release
+rm -rf $HOME/.config/mozilla/firefox/*.default-release/*
+cp -r firefox/* $HOME/.config/mozilla/firefox/*.default-release
 
-ublock_version="1.69.0"
+ublock_version="1.68.0"
 wget -O uBlock0_$ublock_version.firefox.signed.xpi https://github.com/gorhill/uBlock/releases/download/$ublock_version/uBlock0_$ublock_version.firefox.signed.xpi
 setsid -f firefox uBlock0_$ublock_version.firefox.signed.xpi
