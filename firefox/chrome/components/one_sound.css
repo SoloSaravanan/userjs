@@ -98,9 +98,9 @@ https://github.com/Godiesc/firefox-one */
     
     .tab-audio-button[soundplaying] {
         --my-background-sound-image: url("../icons/sound-playing.svg") !important;
-        --button-background-color-ghost: color-mix(in srgb, var(--contrast-color), transparent) !important;
-        --button-background-color-ghost-hover: color-mix(in srgb, var(--contrast-color), transparent) !important;
-        --button-background-color-ghost-active: color-mix(in srgb, var(--contrast-color), transparent) !important;
+        --button-background-color-ghost: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
+        --button-background-color-ghost-hover: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
+        --button-background-color-ghost-active: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
         --my-fill: var(--general-color)  !important;
         
         &:hover {
@@ -146,7 +146,7 @@ https://github.com/Godiesc/firefox-one */
             &:is([soundplaying], [muted], [activemedia-blocked]) {
                 width: 14px !important;
                 height: 14px !important;
-                background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                 background-image: none !important;
                 inset-inline-end: -7px !important;
                 top: -5px !important;
@@ -164,7 +164,7 @@ https://github.com/Godiesc/firefox-one */
             
             &:is([muted],[activemedia-blocked]) {
                 list-style-image: url("../icons/sound-muted.svg") !important;
-                background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                 
                 &:hover {
                     fill: var(--tab-selected-textcolor) !important;
@@ -195,7 +195,7 @@ https://github.com/Godiesc/firefox-one */
                 &:is([soundplaying],[muted],[activemedia-blocked]) {
                     height: 14px !important;
                     width: 14px !important;
-                    background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                    background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                     background-image: none !important;
                     padding: 0px !important;
                     top: -5px !important;
@@ -273,7 +273,7 @@ https://github.com/Godiesc/firefox-one */
             --button-background-color-ghost-active: var(--general-color) !important;
             --my-background-size: inherit !important;
             --my-background-position: center !important;
-            --my-fill: var(--contrast-color) !important;
+            --my-fill: var(--my-scheme-color) !important;
             --my-top: calc(var(--tab-height-personal)/2 - 9px) !important;
             --my-inset-inline-start: 7px !important;
         }
@@ -377,7 +377,7 @@ https://github.com/Godiesc/firefox-one */
             
             &[soundplaying]:is(:hover) {
                 background-color: var(--general-color) !important;
-                fill: var(--contrast-color) !important;
+                fill: var(--my-scheme-color) !important;
             }
             
             &:is([muted],[activemedia-blocked]) {
@@ -422,7 +422,7 @@ https://github.com/Godiesc/firefox-one */
 
                 &[soundplaying]:is(:hover) {
                     background-color: var(--general-color) !important;
-                    fill: var(--contrast-color) !important;
+                    fill: var(--my-scheme-color) !important;
                 }
 
                 &:is([muted],[activemedia-blocked]) {

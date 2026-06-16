@@ -39,14 +39,14 @@ body,
         
         @media -moz-pref("firefoxone.main-image") {
             --my-main-gradient-background: transparent !important;
-            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
+            background-color: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper));
         }
     }
 
     @media not -moz-pref("firefoxone.main-image") {
         /* Put here this color only in themes with images because a bug with solid themes (lwt-accent-color) */
         &:is([lwtheme-image],[style*="--lwt-additional-images"])>body:before {
-            background-color: var(--toolbar-bgcolor);
+            background-color: var(--toolbar-background-color);
         }
     }
 }
@@ -60,7 +60,7 @@ body, #browser, .browserContainer {
 
 /* Web content background color */
 .browserStack>browser {
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
     border-radius: var(--my-toolbar-border-radius) !important;
 }
 
@@ -88,12 +88,12 @@ body, #browser, .browserContainer {
     .tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
         
         --my-main-gradient-background: transparent !important;
-        --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-wallpaper)/* - 20%/**/)) !important;
+        --toolbar-background-color: color-mix(in srgb, var(--my-scheme-color), transparent calc(var(--brightness-wallpaper)/* - 20%/**/)) !important;
         --lwt-header-image: var(--lwt-main-image) !important;
         --my-background-size: 100vw 100vh !important;
         
         @media -moz-pref("firefoxone.main-image") {
-            --toolbar-bgcolor: color-mix(in srgb,var(--my-toolbar-bgcolor),transparent var(--brightness-toolbar)) !important;
+            --toolbar-background-color: color-mix(in srgb,var(--my-toolbar-bgcolor),transparent var(--brightness-toolbar)) !important;
         }
     }
 }
@@ -135,7 +135,7 @@ menubar > menu {
 
 #toolbar-menubar[autohide] #main-menubar {
     height: calc(var(--tab-min-height) + var(--tab-block-margin,0px)) !important;
-    background: linear-gradient(var(--my-toolbar-bgcolor, var(--toolbar-bgcolor)), var(--my-toolbar-bgcolor, var(--toolbar-bgcolor))),
+    background: linear-gradient(var(--my-toolbar-bgcolor, var(--toolbar-background-color)), var(--my-toolbar-bgcolor, var(--toolbar-background-color))),
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
     background-position: 0 0, right top , var(--lwt-background-alignment) !important;
@@ -149,7 +149,7 @@ menubar > menu {
     margin-block: 4px !important;
     margin-inline-start: 4px !important;    
     padding-inline: 4px !important;
-    box-shadow: 5px 0 5px 1px var(--contrast-color) !important;
+    box-shadow: 5px 0 5px 1px var(--my-scheme-color) !important;
 }
 
 #toolbar-menubar[autohide]:not([inactive]) #main-menubar>menu {
@@ -184,7 +184,7 @@ menubar > menu {
 #nav-bar, #PersonalToolbar, findbar {
     outline: 1px solid var(--my-content-border-color) !important;
     outline-offset: -1px !important;
-    box-shadow: 0 0 1px var(--contrast-color) !important;
+    box-shadow: 0 0 1px var(--my-scheme-color) !important;
 }
 
 /* ______________________________ Margin in all toolbars ______________________________
@@ -241,7 +241,7 @@ menubar > menu {
             
             /* When 'focus' */
             &:focus-within {
-                background-color: color-mix(in srgb, var(--contrast-color) 40%, transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color) 40%, transparent) !important;
                 border-color: var(--general-color) !important;
                 outline: 1px solid var(--general-color) !important;
             }
@@ -307,11 +307,11 @@ menubar > menu {
     max-width: none !important;
     min-width: 1px !important;
     /* Other styles */
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
     /*box-shadow: inset 0 0 0 1px var(--my-content-border-color) !important;/**/
     outline: 1px solid var(--my-content-border-color) !important;/**/
     outline-offset: -1px !important;
-    box-shadow: 0 0 1px var(--contrast-color) !important;
+    box-shadow: 0 0 1px var(--my-scheme-color) !important;
     overflow-x: hidden !important;
     padding-block-end: 0px !important;  /* Fix defect when using 'revamp' */
     margin-block: 4px !important;
@@ -461,7 +461,7 @@ menubar > menu {
         
     :root:not([inDOMFullscreen]) & > .split-view-panel:not(.deck-selected) {
         border-radius: var(--my-toolbar-border-radius) !important;
-        box-shadow: 0 0 1px var(--contrast-color) !important;
+        box-shadow: 0 0 1px var(--my-scheme-color) !important;
         }
         
         /* Outline in selected tab */
@@ -470,12 +470,6 @@ menubar > menu {
             
             .deck-selected > & {
                 outline-color: transparent !important;
-                
-                :is(.browserStack, .browserStack > browser) {
-                    outline-width: 2px !important;
-                    outline-offset: -2px !important;
-                    outline-color: var(--general-color) !important;
-                }
             }
             
             .deck-selected > & findbar {
@@ -483,16 +477,24 @@ menubar > menu {
             }
         }
         
+        & .split-view-panel-active.deck-selected {
+            :is(.browserStack, .browserStack > browser) {
+                outline-width: 2px !important;
+                outline-offset: -2px !important;
+                outline-color: var(--general-color) !important;
+            }
+        }
+        
         /* Margins 1st split tab */
         & .split-view-panel.split-view-panel-active[column="0"] {
             margin-block: 0px !important;
-            margin-inline: 1px 2px !important;
+            margin-inline: 1px 1px !important;
         }
         
         /* Margins 2nd split tab */
         & .split-view-panel.split-view-panel-active[column="1"] {
             margin-block: 0px !important;
-            margin-inline: 2px 1px !important;
+            margin-inline: 1px 1px !important;
         }
     }
 }
@@ -500,14 +502,14 @@ menubar > menu {
 /* 'Split view' spliter \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .split-view-splitter {
-    min-width: 4px !important;
+    min-width: 7px !important;
     border-color: transparent !important;
-    border-width: 1px !important;
-    border-block-width: calc(var(--my-toolbar-border-radius)/2) !important; !important;
+    border-width: 2px !important;
+    border-block-width: calc(var(--my-toolbar-border-radius)/2) !important;
     border-radius: var(--my-toolbar-border-radius) !important;
     background: transparent !important;
     margin-inline: -3px !important;
-    margin-block: calc(var(--my-toolbar-border-radius)/2) !important; !important;
+    margin-block: calc(var(--my-toolbar-border-radius)/2) !important;
     
     &:hover {
         transition: background 0.1s ease-in-out 0.1s, border-color 0.1s ease-in-out 0.1s !important;
@@ -591,7 +593,7 @@ split-view-footer {
         border-radius: var(--my-toolbar-border-radius) !important;
         outline: 1px solid var(--my-content-border-color) !important;
         outline-offset: -1px !important;
-        box-shadow: 0 0 1px var(--contrast-color) !important;
+        box-shadow: 0 0 1px var(--my-scheme-color) !important;
     }
     
     /* Remove some styles in Fullscreen mode */
@@ -636,7 +638,7 @@ split-view-footer {
 ¯¯¯¯¯¯¯¯¯¯¯¯ */
 findbar {
     background: none !important;
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
     color: var(--tab-selected-textcolor) !important;
     border: none !important;
     border-radius: 0px 0px var(--my-toolbar-border-radius) var(--my-toolbar-border-radius) !important;

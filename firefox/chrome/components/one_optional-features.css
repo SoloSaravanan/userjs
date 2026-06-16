@@ -102,14 +102,14 @@
     :root,
     :root:is([lwtheme-image],[style*="--lwt-additional-images"]),
     :root:not([style*="--lwt-additional-images"],[lwtheme-image]) {
-        --toolbar-bgcolor: color-mix(in srgb,                                                                       /* Toolbars - web content background color */
+        --toolbar-background-color: color-mix(in srgb,                                                                       /* Toolbars - web content background color */
          var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
-        --tab-selected-bgcolor: var(--toolbar-bgcolor) !important;                                                  /* Tab selected background color */
+        --tab-background-color-selected: var(--toolbar-background-color) !important;                                                  /* Tab selected background color */
         --lwt-additional-images: var(--lwt-main-image) !important;                                                  /* Replace default theme 'aditional' image */
         --lwt-header-image: var(--lwt-additional-images) !important;                                                /* Replace default theme 'header' image */
-        --toolbarbutton-hover-background: color-mix(in srgb,                                                        /* Button background when 'hover' */
+        --toolbarbutton-background-color-hover: color-mix(in srgb,                                                        /* Button background when 'hover' */
             transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;
-        --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                           /* Button background 'hover' personal */
+        --toolbarbutton-hover-personal: var(--toolbarbutton-background-color-hover) !important;                           /* Button background 'hover' personal */
         --tab-selected-outline-color: var(--general-color) !important;
     }
     

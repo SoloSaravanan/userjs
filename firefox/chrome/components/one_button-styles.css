@@ -65,7 +65,7 @@ richlistitem[selected="true"],
 #editBMPanel_locationField,
 #editBMPanel_tagsField {
     &::selection {
-        color: var(--contrast-color) !important;
+        color: var(--my-scheme-color) !important;
     }
 }
 
@@ -81,7 +81,7 @@ richlistitem[selected="true"],
 #PanelUI-profiler-header {
     &[isinfocollapsed="false"] {
         background: radial-gradient(circle farthest-side at top left, var(--button-active-bgcolor), var(--button-hover-bgcolor)) !important;
-        border-radius: calc(var(--arrowpanel-border-radius) - 2px) !important;
+        border-radius: calc(var(--panel-border-radius) - 2px) !important;
     }
 }
 
@@ -127,7 +127,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:ac
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 #unified-extensions-panel #unified-extensions-view {
-    --uei-icon-size: calc(2 * var(--toolbarbutton-inner-padding) + 6px);
+    --uei-icon-size: calc(2 * var(--toolbarbutton-padding-inner) + 6px);
     --firefoxcss-number-of-extensions-in-a-row: 7;
     --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
     --panel-separator-zap-gradient6: linear-gradient(to left, #70707070, transparent 100%) 1;
@@ -189,7 +189,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:ac
 .unified-extensions-item-message-deck {
     background-color: var(--my-traffic-light-color, transparent) !important;
     position: absolute !important;
-    box-shadow: var(--my-box-shadow, inset 0 0 1px 1px var(--contrast-color)) !important;
+    box-shadow: var(--my-box-shadow, inset 0 0 1px 1px var(--my-scheme-color)) !important;
     border-radius: 10px !important;
     font-size: 0 !important;
     width: 8px !important;
@@ -259,7 +259,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:ac
 #sidebar-button {
     
     &:not(:hover) {
-    --toolbarbutton-active-background: transparent !important;
+    --toolbarbutton-background-color-active: transparent !important;
     }
 
     &[checked] {
@@ -272,14 +272,38 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:ac
         }
 
         &:hover {
-            --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
+            --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover) !important;
         }
     }
     &[open] {
         /* When Firefox show a 'Message' in this button */
-        --toolbarbutton-active-background: var(--button-active-bgcolor) !important;
+        --toolbarbutton-background-color-active: var(--button-active-bgcolor) !important;
         fill: FieldText !important;
     }
+}
+
+/* ________________________ Firefox-view ________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#tabbrowser-tabs::before {
+    border-image: 0 1 linear-gradient(
+        transparent 24%,
+        color-mix(in srgb, currentColor 20%, transparent) 24%,
+        color-mix(in srgb, currentColor 20%, transparent) 68%,
+        transparent 68% ) !important;
+}
+
+#TabsToolbar {
+    & #firefox-view-button:hover .toolbarbutton-icon {
+        background-color: var(--toolbarbutton-hover-personal) !important;
+        fill: var(--general-color) !important;
+        transition: none !important;
+    }
+}
+
+toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
+        background: var(--button-bgcolor) !important;
+        fill: var(--panel-text-color, var(--my-font-color)) !important;
+        transition: none !important;
 }
 
 /* ---------------------------------------------- Used for various smooth transition ---------------------------------------------- */

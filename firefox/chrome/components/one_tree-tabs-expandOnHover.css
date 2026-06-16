@@ -53,10 +53,10 @@
                 height: 100%;
                 border-radius: var(--my-toolbar-border-radius);
                 margin-inline: 4px !important;
-                background-color: var(--toolbar-bgcolor);
+                background-color: var(--toolbar-background-color);
                 outline: 1px solid var(--my-content-border-color);
                 outline-offset: -1px;
-                box-shadow: 0 0 1px var(--contrast-color) !important;
+                box-shadow: 0 0 1px var(--my-scheme-color) !important;
                 transition: width var(--uc-autohide-transition-duration) ease-in-out !important;
                 
                 @media -moz-pref("sidebar.revamp") {
@@ -116,7 +116,7 @@
                     }
 
                     &:before {
-                        --smooth-contrast-color: color-mix(in srgb, var(--contrast-color) 45%, transparent);
+                        --smooth-contrast-color: color-mix(in srgb, var(--my-scheme-color) 45%, transparent);
                         box-shadow: inset 1px 0 var(--smooth-contrast-color), inset 2px 0 var(--my-content-border-color) !important;
                         transition-delay: var(--uc-autohide-transition-duration) !important;
                         z-index: 1 !important;
@@ -141,7 +141,7 @@
                     }
 
                     &:before {
-                        --smooth-contrast-color: color-mix(in srgb, var(--contrast-color) 45%, transparent);
+                        --smooth-contrast-color: color-mix(in srgb, var(--my-scheme-color) 45%, transparent);
                         left: 8px;
                         box-shadow: inset -1px 0 var(--smooth-contrast-color), inset -2px 0  var(--my-content-border-color) !important;
                     }
@@ -236,7 +236,7 @@
                     border-radius: 8px !important;
                     background-image: linear-gradient(var(--my-toolbar-bgcolor, transparent), var(--my-toolbar-bgcolor, transparent)),
                         var(--lwt-header-image, var(--lwt-additional-images, none)),
-                        linear-gradient(var(--toolbar-bgcolor, Field), var(--toolbar-bgcolor, Field)) !important;
+                        linear-gradient(var(--toolbar-background-color, Field), var(--toolbar-background-color, Field)) !important;
                     background-size: auto 100% !important; 
                     outline: 1px solid var(--my-content-border-color) !important;
                     outline-offset: -1px !important;

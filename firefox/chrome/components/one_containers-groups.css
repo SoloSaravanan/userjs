@@ -69,7 +69,7 @@
 .tab-background {
     #tabbrowser-tabs[movingtab-group] & {
         &:is([selected], [multiselected]) {
-            background-color: var(--contrast-color) !important;
+            background-color: var(--my-scheme-color) !important;
             box-shadow: none !important;
             outline-width: 2px !important;
             outline-offset: -1px !important;
@@ -99,7 +99,7 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
 /* Remove group 'hover' background \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-group-label-hover-highlight {
-    --tab-hover-background-color: transparent !important;
+    --tab-background-color-hover: transparent !important;
     margin-inline: 0px !important;
 }
 
@@ -124,7 +124,7 @@ tab-group {
     &:hover {
         opacity: 1;
         outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
-        box-shadow: inset 0 0 0 1px var(--toolbar-bgcolor) !important;
+        box-shadow: inset 0 0 0 1px var(--toolbar-background-color) !important;
     }
 
     /* Trick to clic on border */

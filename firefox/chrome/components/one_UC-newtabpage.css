@@ -758,10 +758,10 @@
     /* Width */
     @container content-grid (inline-size >= calc(750px + 6.75rem)) {
         .nova-enabled .search-inner-wrapper {
-            width: calc(6 * var(--col-width) + 9 * var(--space-medium)) !important;
+            width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
         }
     }
-
+    
     .search-wrapper content-search-handoff-ui {
         --newtab-background-color-secondary: transparent !important;
         --newtab-text-primary-color: Fieldtext !important;
@@ -769,63 +769,98 @@
     }
     
     /* Remove arrow */
-    .non-handoff-container .search-button { display: none !important; }
-
-    /* Margin when 'stories' are enabled */    
-    .has-recommended-stories .outer-wrapper:not(.fixed-search) .search-wrapper {
-        margin-block-start: 0px !important;
+    .non-handoff-container .search-button {
+        display: none !important;
+        border-radius: 0 calc(var(--border-radius-medium) + 22px) calc(var(--border-radius-medium) + 22px) 0px !important;
     }
     
-    /* Styles for the classic search box \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    #newtab-search-text {
-        background: var(--my-gradient-background), var(--newtab-search-icon) 16px center no-repeat !important;
-        background-size: var(--size-item-medium) !important;
+    /* Styles for both searchbox - classic & improved \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    #newtab-search-text,
+    .search-handoff-button {
         backdrop-filter: var(--my-blur) !important;
-        padding-inline-start: 50px !important;
-        border-radius: var(--border-radius-large) !important;
-        box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
-        outline: none !important;
+        box-shadow: inset 0 -1px var(--button-smaller-bgcolor), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        transition: box-shadow ease-in-out 0.2s, background-color 0.2s ease !important;
+        outline: 2px solid transparent !important; /* Remove unwanted outline but keep it transparent for 'accessibility' */
         
         &:hover,
-        &:focus-within {
-            background-color: var(--my-gradient-background-hover) !important;
-            transition: background-color 0.2s ease-out, outline 0.2s ease-out;
-            transition-delay: 0.1s, 0ms !important;
+        &:hover:not([keepfocus]) {
+            box-shadow: inset 0 0px 0 2px var(--my-box-shadow-color, var(--button-smaller-bgcolor)), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;/**/
         }
         
-        &:focus-within {
-            box-shadow: inset 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+        &[keepfocus] {
+            box-shadow: inset 0 0 0 1px var(--general-color), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;/**/
         }
     }
     
     /* Styles for the improved search box \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    .search-handoff-button {
-        --content-search-handoff-ui-background-color: var(--my-newtab-elements-background) !important;
-        /*background: var(--my-gradient-background), var(--newtab-search-icon) 16px center no-repeat !important;/**/
-        box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
-        border-radius: var(--border-radius-large) !important;
-        
-        &:hover {
-            background-color: var(--my-gradient-background-hover) !important;
-            transition: background-color 0.2s ease-out, outline 0.2s ease-out;
-            transition-delay: 0.1s, 0ms !important;
+    .non-handoff-container:focus-within,
+    content-search-handoff-ui[fakefocus] {
+        --my-box-shadow-color: var(--general-color) !important;
+        --my-smooth-border-color: var(--my-box-shadow-color) !important;
+    }
+    
+    /* Styles for the classic search box \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    #newtab-search-text {
+        padding-inline-start: 50px !important;
+    }
+    
+    /* Background for the improved search box */
+    @media -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
+        .non-handoff-container {
+            background: var(--my-gradient-background) !important;
+            
+            &:focus-within {
+                background: var(--my-gradient-background-hover) !important;
+            }
         }
     }
     
+    /* Background for the classic search box */
+    @media not -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
+        content-search-handoff-ui {
+            background: var(--my-gradient-background) !important;
+            
+            &[fakefocus] {
+                background: var(--my-gradient-background-hover) !important;
+            }
+        }
+    }
+    
+    /* Searchbox focus Animation line */
+    .non-handoff-container,
+    content-search-handoff-ui {
+        border-radius: calc(var(--border-radius-medium) + 22px) !important;
+        &:before {
+            content: '' !important; display: flex !important; position: absolute !important;
+            width: -moz-available !important;
+            border-radius: calc(var(--border-radius-medium) + 22px) !important;
+            height: 100% !important;
+            bottom: 0px !important;
+            box-shadow: 0 1px 0 0 var(--general-color) !important;
+            clip-path: xywh(50% -2px 0% calc(100% + 4px)) !important;
+            transition: clip-path 0.8s ease, background 0.4s ease !important;
+            pointer-events: none !important;
+        }
+    }
+
+    .non-handoff-container:focus-within,
     content-search-handoff-ui[fakefocus] {
-        background-color: var(--my-gradient-background-hover) !important;
-        box-shadow: inset 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
-        border-radius: var(--border-radius-large) !important;
+        &:before {
+            box-shadow: 0 0 0 1px var(--general-color) !important;
+            clip-path: xywh(-2px -2px calc(100% + 4px) calc(100% + 4px)) !important;
+            background: var(--my-gradient-background) !important;
+            transition: clip-path 0.3s ease, background 0.4s ease !important;
+        }
     }
     
     /* Search-box when it get sticky position \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
     @media (height > 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            --my-image-background-blur: color-mix(in srgb, var(--my-color-scheme), transparent) !important;
+            --my-image-background-blur: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
             --my-solid-background-blur: color-mix(in srgb, var(--newtab-background-color), transparent) !important;
             background-image: linear-gradient(
                 var(--my-image-background-blur), var(--my-image-background-blur)),
@@ -838,11 +873,17 @@
             border-color: Field !important;
             box-shadow: var(--my-box-shadow) !important;
             
-            @media -moz-pref("firefoxone.main-image") {
+            @media -moz-pref("firefoxgx.main-image") {
                 background-image: none !important;
                 background-color: var(--my-big-opaque-background) !important;
             }
         }
+    }
+    
+    /* Test it without 'News' section - Small space above searchbox */
+    
+    .nova-enabled.container {
+        grid-auto-rows: 0px !important;
     }
     
     /* _____________________________________________________ Weather _____________________________________________________ \

@@ -3,11 +3,11 @@
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
     :root {
-        --label-color: color-mix(in srgb, var(--panel-color, var(--tab-selected-textcolor)) 90%, var(--Button-background-personal));
-        --margin-left-icons-personal: calc(var(--toolbarbutton-inner-padding)*2 - 10px) !important;
+        --label-color: color-mix(in srgb, var(--panel-text-color, var(--tab-selected-textcolor)) 90%, var(--Button-background-personal));
+        --margin-left-icons-personal: calc(var(--toolbarbutton-padding-inner)*2 - 10px) !important;
         --margin-right-icons-personal: 0px !important;
         --menu-label: "Menu" ;
-        --padding-left-tab: calc(6px + var(--toolbarbutton-inner-padding)*2 + var(--tab-height-personal)/2);
+        --padding-left-tab: calc(6px + var(--toolbarbutton-padding-inner)*2 + var(--tab-height-personal)/2);
     }
 }
 
@@ -109,7 +109,7 @@
                 
                 /* Smaller menu button size */
                 & #PanelUI-menu-button {
-                    --toolbarbutton-inner-padding: 3px !important;
+                    --toolbarbutton-padding-inner: 3px !important;
                     --tab-block-margin-personal: 0px !important;
                 }
 
@@ -157,19 +157,19 @@
             /* Menu button style and margins */
             
             & #PanelUI-menu-button {
-                --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
-                --toolbarbutton-outer-padding: 0px !important;
+                --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;
+                --toolbarbutton-padding-outer: 0px !important;
                 --toolbar-start-end-padding: 0px !important;
-                --toolbarbutton-inner-padding: calc(var(--tab-height-personal)/2 - 8px) !important;/* Smaller toolbar buttons */
+                --toolbarbutton-padding-inner: calc(var(--tab-height-personal)/2 - 8px) !important;/* Smaller toolbar buttons */
                 padding-block: var(--tab-block-margin-personal, 0px) !important;
                 padding-inline: 4px !important;
                 /*
                 :root[uidensity="compact"] & {
-                    --toolbarbutton-inner-padding: 3px !important;
+                    --toolbarbutton-padding-inner: 3px !important;
                 }/**/
                 
                 :root[uidensity="touch"] & {
-                    /*--toolbarbutton-inner-padding: calc(var(--tab-height-personal)/2 - 8px) !important;/**/
+                    /*--toolbarbutton-padding-inner: calc(var(--tab-height-personal)/2 - 8px) !important;/**/
                     
                     @media -moz-pref("firefoxone.tree_tabs_style") or -moz-pref("sidebar.verticalTabs") {
                         /*--tab-height-personal: calc(var(--toolbar-height-personal) - 8px) !important;/* Smaller toolbar buttons */
@@ -177,14 +177,14 @@
                 }
                 
                 @media -moz-pref("firefoxone.tree_tabs_style") or -moz-pref("sidebar.verticalTabs") {
-                    --toolbarbutton-inner-padding: inherit !important;/* Smaller toolbar buttons */
+                    --toolbarbutton-padding-inner: inherit !important;/* Smaller toolbar buttons */
                 }
             }
             
             /* Position */
             
             & #PanelUI-button {
-                --toolbarbutton-active-background: color-mix(in srgb,var(--toolbarbutton-hover-personal) 70%, transparent) !important;
+                --toolbarbutton-background-color-active: color-mix(in srgb,var(--toolbarbutton-hover-personal) 70%, transparent) !important;
                 position: absolute; /* Makes the button hidde when 'fullscreen' */
                 top: calc(0px - var(--tab-height-personal) - var(--tab-block-margin)*2 - 3px - var(--menubar-height-personal, 0px)) !important;
                 inset-inline-start: calc(-1*var(--my-elements-left-margin, 0px) - 4px) !important; /* not left for RTL languages */
@@ -236,7 +236,7 @@
 
             & #appMenu-popup panelview {
                 width: 28.5em !important;
-                padding-block-start: calc(var(--toolbarbutton-inner-padding) + var(--tab-height-personal)/2 + 11px) !important;
+                padding-block-start: calc(var(--toolbarbutton-padding-inner) + var(--tab-height-personal)/2 + 11px) !important;
                 background: var(--my-popup-gradient-background) !important;
             }
 
@@ -244,10 +244,10 @@
 
             & #appMenu-popup {
                 --my-menu-button-width: var(--padding-left-tab) !important;
-                --arrowpanel-border-radius: var(--toolbarbutton-border-radius) !important;
-                --panel-shadow-margin: 1px !important;
-                --panel-shadow: 0 0 0 1px var(--contrast-color) !important;
-                --panel-border-color: var(--arrowpanel-border-color) !important;
+                --panel-border-radius: var(--toolbarbutton-border-radius) !important;
+                --panel-box-shadow-margin: 1px !important;
+                --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;
+                --panel-border-color: var(--panel-border-color) !important;
                 opacity: 1 !important;
                 transition: none !important;
                 
@@ -258,7 +258,7 @@
                     top: calc(var(--tab-height-personal)/2 + 4px);
                     width: -moz-available;
                     height: 1px !important;
-                    color: var(--panel-color);
+                    color: var(--panel-text-color);
                     display: inline-flex !important;
                     white-space: pre !important;
                     inset-inline-start: calc(var(--margin-left-icons-personal) + 9px);
@@ -389,7 +389,7 @@
                     }
 
                     & .toolbarbutton-badge-stack {
-                        --toolbarbutton-inner-padding: 8px !important;
+                        --toolbarbutton-padding-inner: 8px !important;
                         --toolbarbutton-border-radius: 8px !important;
                         justify-content: center !important;
                         align-items: center !important;
@@ -406,7 +406,7 @@
                     }
 
                     &:not([tabsintitlebar]) #appMenu-popup {
-                        --arrowpanel-border-radius: 8px !important;
+                        --panel-border-radius: 8px !important;
                         margin-top: calc(-15px - (var(--my-vertical-toolbar-width) / 2 )) !important;
                         padding-inline-start: 4px !important;
 
@@ -434,7 +434,7 @@
                 
                 @media -moz-pref("firefoxone.style_without_leftsidebar"),
                     (not -moz-pref("firefoxone.style_without_leftsidebar")) and -moz-pref("browser.toolbars.bookmarks.visibility", 'never') {
-                        --margin-left-icons-personal: calc(var(--toolbarbutton-inner-padding)*2 - 9px) !important;
+                        --margin-left-icons-personal: calc(var(--toolbarbutton-padding-inner)*2 - 9px) !important;
                 }
                 
                 & #PanelUI-menu-button {
@@ -466,7 +466,7 @@
                 /* Align menu popup*/                
                 #appMenu-popup {
                     padding-inline-start: 4px !important;
-                    --arrowpanel-border-radius: 8px !important;
+                    --panel-border-radius: 8px !important;
                     
                     /* Align menu 'logo+label' insside popup menu */
                     &::before {

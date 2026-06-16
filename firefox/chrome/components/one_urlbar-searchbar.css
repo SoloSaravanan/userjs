@@ -76,8 +76,8 @@
 }
 
 .urlbarView-row:hover .urlbarView-favicon {
-    background-color: var(--toolbar-field-focus-background-color) !important;
-    outline: 8px solid var(--toolbar-field-focus-background-color) !important;
+    background-color: var(--toolbar-field-background-color-focus) !important;
+    outline: 8px solid var(--toolbar-field-background-color-focus) !important;
     clip-path: circle(90%) !important;
 }
 
@@ -293,11 +293,6 @@
 
 /* ___________________________________________ Search Engine button ___________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-/* Replace default search engine button icon */
-.button-background > img {
-    content: var(--my-custom-image, none);
-}
-
 .searchmode-switcher {
     /* Background */
     --button-background-color: transparent !important; /* Test it when url open & extended */
@@ -320,7 +315,7 @@
     
     /* Default search engine */
     .urlbar:not([searchmode]) & {
-        --my-custom-image: url("chrome://global/skin/icons/search-glass.svg") !important;
+        --button-icon-content: url("chrome://global/skin/icons/search-glass.svg") !important;
         --my-display: none !important;
     }
     
@@ -351,13 +346,13 @@
     --urlbar-inner-border-radius: 12px !important;
     --my-display: none !important;
     background-color: var(--my-font-color) !important;
-    color: var(--contrast-color) !important;
+    color: var(--my-scheme-color) !important;
     
     &:hover {
         --my-width: 100% !important;
         --my-display: flex !important;
         background-color: var(--general-color) !important;
-        --urlbar-box-text-color-hover: var(--contrast-color) !important;
+        --urlbar-box-text-color-hover: var(--my-scheme-color) !important;
     }
 }
 
@@ -473,7 +468,7 @@ input::-moz-search-clear-button:hover {
 }
 
 #translations-button[translationsactive] {
-    --toolbarbutton-icon-fill-attention: var(--toolbar-color) !important;
+    --toolbarbutton-icon-fill-attention: var(--toolbar-text-color) !important;
     &:not(:hover,[open]) .urlbar-icon{
         display: none !important;
     }
@@ -490,7 +485,7 @@ input::-moz-search-clear-button:hover {
 
 #translations-button:is([open], :hover) #translations-button-locale{
     background-color: var(--toolbarbutton-icon-fill) !important;
-    color: var(--contrast-color) !important;
+    color: var(--my-scheme-color) !important;
 }
 
 /* Space between left url icons */

@@ -13,8 +13,8 @@
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
-        --contrast-color: #09080d !important;
-        --border-contrast-color: #09080d !important;
+        --my-scheme-color: #09080d !important;
+        --my-scheme-border-color: #09080d !important;
         --organizer-pane-background: #101019 !important;
         --organizer-frame-background: #030615 !important;
         --organizer-toolbar-background: #252836 !important;
@@ -27,8 +27,8 @@
     @media (prefers-color-scheme: light){
         :root{
         --arrowpanel-background: #f9f9f9 !important;
-        --contrast-color: #f9f9f9 !important;
-        --border-contrast-color: #acacac50 !important;
+        --my-scheme-color: #f9f9f9 !important;
+        --my-scheme-border-color: #acacac50 !important;
         --organizer-pane-background: #f9f9f9 !important;
         --organizer-frame-background: #d0dbe3 !important;
         --organizer-toolbar-background: #ffffff !important;
@@ -42,7 +42,7 @@
     .menupopup-arrowscrollbox{
         background-color: var(--arrowpanel-background) !important;
         border-color: var(--organizer-border-color) !important;
-        box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
+        box-shadow: 0px 0px 0 1px var(--my-scheme-border-color) !important;
     }
     /* -------------- Border color to "nombre"-"Etiquetas"-"Dirección" -------------- */
     treecol, treecolpicker {
@@ -156,7 +156,7 @@
         appearance: none !important;
         padding-inline: 14px !important;
         border-radius: 4px !important;
-        outline: 1px solid  color-mix(in srgb, var(--contrast-color) 30%, transparent) !important;
+        outline: 1px solid  color-mix(in srgb, var(--my-scheme-color) 30%, transparent) !important;
         outline-offset: -1px !important;
         background: var(--organizer-pane-background) !important;
         }

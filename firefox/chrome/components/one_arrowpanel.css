@@ -1,36 +1,54 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Arrowpanel, popup menus & panels styles */
-
+/* Arrowpanel, popup menus & panels styles \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :is(menupopup, panel):where([type="arrow"]) {
     --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
                            color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
                            var(--arrowpanel-background));
-    --panel-background: var(--my-background-image-popup), var(--noise-urlbar-personal),
+    --panel-background-color: var(--my-background-image-popup), var(--noise-urlbar-personal),
                         var(--noise-urlbar-personal) , var(--arrowpanel-background) !important;
-    --panel-border-color: var(--arrowpanel-border-color) !important;
 }
 
-panel {
-    --panel-shadow: 0 0 0 1px var(--contrast-color) !important;
+panel:where([type="arrow"]) {
+    --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;
     
     @media (prefers-color-scheme: light) {
-        --contrast-color: var(--border-contrast-color) !important;
+        --my-scheme-color: var(--my-scheme-border-color) !important;
     }
 }
 
-/* Remove unwanted style for radiobutton */
-
-.toggle-button {
-    --toggle-dot-background-color-on-pressed: var(--arrowpanel-background) !important;
+/* Alignment of popups [Open] \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.panel-no-padding[type="arrow"] {
+    margin-block: calc(-1 * var(--panel-box-shadow-margin) + 1px) !important;
+    margin-inline: -4px !important;
 }
 
-/* Alignment of popups [Open] */
+/* Gradient border around popups -&- border color in popups like bookmark \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:is(menupopup, panel):where([type="arrow"]) {
+    position: relative;  /* Needed for round gradient border ¯¯v */
+}
+                                         /* not: Firefox info messages */
+:is(menupopup, panel):where([type="arrow"]):not(#feature-callout)::after {
+    content: "";
+    position: absolute;
+    inset: var(--panel-box-shadow-margin);
+    border-radius: var(--panel-border-radius);
+    padding: 1px;
+    background-position: center center !important;
+    background: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none !important;
+}
 
-.panel-no-padding[type="arrow"] {
-    margin-block: calc(-1 * var(--panel-shadow-margin) + 1px) !important;
-    margin-inline: -4px !important;
+/* Margin bottom last item of popups */
+
+.panel-subview-footer-button {
+    --panel-menuitem-margin-inline: 4px !important;
 }
 
 /* Gradient background color when :hover over different items in the main menus */
@@ -43,7 +61,7 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .t
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
     background: var(--button-bgcolor) !important;
-    color: var(--panel-color, var(--tab-selected-textcolor)) !important;
+    color: var(--panel-text-color, var(--tab-selected-textcolor)) !important;
 }
 
 /* Background color when clicking on different items in the main menus */
@@ -61,8 +79,8 @@ menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .
 
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
-    color: color-mix(in srgb, var(--panel-color)70%, transparent) !important;
-    fill:  color-mix(in srgb, var(--panel-color)70%, transparent) !important;
+    color: color-mix(in srgb, var(--panel-text-color)70%, transparent) !important;
+    fill:  color-mix(in srgb, var(--panel-text-color)70%, transparent) !important;
 }
 
 #PlacesToolbar menupopup[placespopup] menuseparator {
@@ -113,9 +131,11 @@ treechildren::-moz-tree-separator {
     padding-inline: 6px !important;
 }
 
-/* Remove unwanted background color in 'tabgroup' 'hover' preview */
+/* Remove unwanted styles in 'tabgroup' 'hover' preview \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabgroup-panel-content {
     background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 /* _______________________ 'Firefox Messages' show in some buttons e.g. Messages of new features _______________________
@@ -123,13 +143,13 @@ treechildren::-moz-tree-separator {
 #feature-callout:not([arrow-position="inline-start-top"]) {
     --arrow-corner-distance: 0px !important;
     --panel-arrow-space: 16px !important;
-    --panel-shadow: none !important;
+    --panel-box-shadow: none !important;
     margin-inline: -28px !important;
 }
 
 #feature-callout:is([arrow-position="inline-start-top"]) {
     --panel-arrow-space: 16px !important;
-    --panel-shadow: none !important;
+    --panel-box-shadow: none !important;
     margin-block-start: -26px !important;
 }
 
@@ -150,8 +170,8 @@ treechildren::-moz-tree-separator {
     }
 }
 
-/* Replace default 'arrow' with ONE style \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Replace default 'arrow' with GX style \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #feature-callout .arrow {
     outline-color: transparent !important;
     box-shadow: none !important;
@@ -162,12 +182,13 @@ treechildren::-moz-tree-separator {
     background-color: transparent !important;
     -moz-context-properties: fill, stroke !important;
     fill: var(--arrowpanel-background) !important;
-    stroke: var(--arrowpanel-border-color) !important;
-    filter: drop-shadow(0px -1px 0px var(--contrast-color)) !important;
+    stroke: var(--panel-border-color) !important;
+    filter: drop-shadow(0px -1px 0px var(--my-scheme-color)) !important;
 }
 
 /* Fix panel external border */
 #feature-callout .section-main {
-    border-radius: 4px !important;
-    box-shadow: 0 0 0 1px var(--contrast-color) !important;
+    background-color: var(--arrowpanel-background) !important;
+    border-radius: 3px !important;/**/
+    box-shadow: 0 0 0 1px var(--my-scheme-color) !important;/**/
 }

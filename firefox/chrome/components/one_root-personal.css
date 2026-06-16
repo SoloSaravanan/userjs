@@ -71,9 +71,10 @@
   --logo-wordmark-display: flex ;                                                                 /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
   --orientation-display: block ;                                                                  /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
   
-  --my-newtab-elements-background: color-mix(in srgb, white 5%, transparent) ;                    /* color - fondo de sitios fijados y barra de búsqueda*/
+  --my-newtab-elements-background: color-mix(in srgb, 
+    white 3%, var(--newtab-background-color) , transparent) ;                                     /* Background color of newtab elements */
   --my-border-radius: 12px ;                                                                      /* Roundness of many elements in 'about:' pages */
-  --my-blur: blur(14px) ;                                                                /* Utilizado para personalizar newtab page */
+  --my-blur: blur(14px) ;                                                                         /* Utilizado para personalizar newtab page */
   
   --my-newtab-pinnedsites-position: start ;                                                       /* Posición pinnedsites -> : start ; center ; end */
   

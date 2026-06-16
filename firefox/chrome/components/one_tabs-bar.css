@@ -21,11 +21,11 @@
 /* Tab background color */
 
 .tabbrowser-tab[visuallyselected] .tab-background {
-    background-color: var(--my-tab-group-background, var(--tab-selected-bgcolor)) !important;
+    background-color: var(--my-tab-group-background, var(--tab-background-color-selected)) !important;
     
     /* Pestaña activa en temas con imágenes */
     :root:is([lwtheme-image],[style*="--lwt-additional-images"]) & {
-        --tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
+        --tab-background-color-selected: var(--toolbar-background-color) !important;
     }
 }
 
@@ -325,18 +325,18 @@
     #tabs-newtab-button, 
     #new-tab-button,
     #vertical-tabs-newtab-button {
-        --toolbarbutton-hover-background: transparent !important;
-        --toolbarbutton-active-background: transparent !important;
+        --toolbarbutton-background-color-hover: transparent !important;
+        --toolbarbutton-background-color-active: transparent !important;
         
         & .toolbarbutton-icon {
-            width: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;
-            height: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;
+            width: calc(2 * var(--toolbarbutton-padding-inner) + 14px) !important;
+            height: calc(2 * var(--toolbarbutton-padding-inner) + 14px) !important;
             z-index: 1 !important;
         }
         
         &::before {
             content: ''; position: absolute; 
-            background-color: color-mix(in srgb, var(--toolbarbutton-hover-personal, var(--toolbar-bgcolor)) 90%, transparent);
+            background-color: color-mix(in srgb, var(--toolbarbutton-hover-personal, var(--toolbar-background-color)) 90%, transparent);
             min-height: calc(var(--tab-height-personal) - 8px);
             width: calc(var(--tab-height-personal) - 8px);
             border-radius: 50%;
@@ -369,7 +369,7 @@
             z-index: 1 !important;
         }
         
-        --tab-hover-background-color: transparent !important;
+        --tab-background-color-hover: transparent !important;
         margin-inline: 0px !important;
 
         &::before {
@@ -464,43 +464,6 @@ spacer {
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]) > .tab-stack > .tab-content[titlechanged]:not([selected]) {
     background-position-y: bottom 1px !important;
     background-position-x: calc(var(--my-vertical-elements-width)/2 - 2px) !important;
-}
-
-/* ________________________ Firefox-view ________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-#firefox-view-button { list-style-image: url("../icons/firefoxview-close.svg") !important; }
-#firefox-view-button[aria-pressed="true"] { 
-    list-style-image: url("../icons/firefoxview-open.svg") !important; 
-    
-    &:active { 
-        list-style-image: url("../icons/firefoxview-close.svg") !important;
-    }
-}
-
-:root:not([privatebrowsingmode="temporary"]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs , 
-:root[privatebrowsingmode="temporary"] :is(toolbarbutton:not(#firefox-view-button), toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs {
-    border-color: transparent !important;
-    @media (not -moz-pref("firefoxone.style_without_leftsidebar")) and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
-        border-image: 0 1 linear-gradient(
-        transparent 28%,
-        color-mix(in srgb, currentColor 20%, transparent) 28%,
-        color-mix(in srgb, currentColor 20%, transparent) 70%,
-        transparent 70% ) !important;
-    }
-}
-
-toolbar:is(#TabsToolbar) #firefox-view-button {
-    padding-inline-start: 4px !important;
-}
-
-toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon{
-    border-radius: var(--tab-border-radius) !important;
-}
-
-#firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
-    outline-color: transparent !important;
-    background: var(--button-bgcolor) !important;
 }
 
 /* Code to tabs-bar reach lower height that 30px */

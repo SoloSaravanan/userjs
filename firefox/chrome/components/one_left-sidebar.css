@@ -213,7 +213,7 @@
 
     #PersonalToolbar {
         --toolbarbutton-border-radius: 7px !important;
-        --toolbarbutton-active-background: var(--button-active-bgcolor) !important;
+        --toolbarbutton-background-color-active: var(--button-active-bgcolor) !important;
         --padding-top-left-sidebar: 56px !important;
         --padding-bottom-left-sidebar: 6px !important;
         --height-left-sidebar: calc(100vh - 8px) !important;
@@ -235,10 +235,10 @@
             height: calc(100% - 8px);
             inset-inline-start: 4px !important;
             border-radius: 8px !important;
-            background-color: var(--toolbar-bgcolor) !important;
+            background-color: var(--toolbar-background-color) !important;
             outline: 1px solid var(--my-content-border-color) !important;
             outline-offset: -1px !important;
-            box-shadow: 0 0 1px var(--contrast-color) !important;
+            box-shadow: 0 0 1px var(--my-scheme-color) !important;
             pointer-events: none !important;
             z-index: -1;
         }
@@ -303,8 +303,8 @@
     /* Color, tamaño y alineación de Items de la barra lateral */
 
     #PersonalToolbar .toolbarbutton-1 {
-        --toolbarbutton-inner-padding: 6px !important;
-        --toolbarbutton-outer-padding: 0 4px !important;
+        --toolbarbutton-padding-inner: 6px !important;
+        --toolbarbutton-padding-outer: 0 4px !important;
         padding-inline-start: 4px !important;
     }
     
@@ -343,7 +343,7 @@
         height: 28px !important;
         width: 28px !important;
         padding: 6px !important;
-        background-color: var(--toolbarbutton-hover-background) !important;
+        background-color: var(--toolbarbutton-background-color-hover) !important;
         border-radius: 6px !important;
     }
     
@@ -363,14 +363,14 @@
     }
 
     #PersonalToolbar #OtherBookmarks:hover>.toolbarbutton-icon{
-        background-color: var(--toolbarbutton-hover-background) !important;
+        background-color: var(--toolbarbutton-background-color-hover) !important;
     }
     
     /* Color base botones extensiones */
 
     #PersonalToolbar .toolbarbutton-1 stack  {
-        --toolbarbutton-inner-padding: 8px !important;
-        background-color: var(--toolbarbutton-hover-background) !important;
+        --toolbarbutton-padding-inner: 8px !important;
+        background-color: var(--toolbarbutton-background-color-hover) !important;
     }
     
     /* :hover de botones: extensiones ; bookmark Folders ; other bookmarks folder */
@@ -386,12 +386,12 @@
     }
     
     #PersonalToolbar #PlacesToolbarItems > .bookmark-item[open]>.toolbarbutton-icon{
-        background-color: var(--toolbarbutton-active-background) !important;
+        background-color: var(--toolbarbutton-background-color-active) !important;
         fill: #d5dadd !important;
     }
     
     #PersonalToolbar #OtherBookmarks[open]>.toolbarbutton-icon{
-        background-color: var(--toolbarbutton-active-background) !important;
+        background-color: var(--toolbarbutton-background-color-active) !important;
         fill: #d5dadd !important;
     }
 
@@ -468,7 +468,7 @@
     #PersonalToolbar #sidebarspotyplay_godie-BAP>.toolbarbutton-badge-stack,
     #PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP>.toolbarbutton-badge-stack
     {
-        --toolbarbutton-inner-padding: 6px !important;
+        --toolbarbutton-padding-inner: 6px !important;
     }
 
     /* New Icons for extensions */
@@ -588,10 +588,10 @@
             border-radius: var(--my-toolbar-border-radius);
             padding-block-start: 4px;
             inset-inline-start: 4px;
-            background-color: var(--toolbar-bgcolor);
+            background-color: var(--toolbar-background-color);
             outline: 1px solid var(--my-content-border-color);
             outline-offset: -1px;
-            box-shadow: 0 0 1px var(--contrast-color) !important;
+            box-shadow: 0 0 1px var(--my-scheme-color) !important;
         }
 
         &[sidebar-panel-open] {
@@ -663,7 +663,7 @@
             --button-background-color-ghost-active: transparent !important;
             --button-background-color-hover: transparent !important;
             --button-background-color-active: transparent !important;
-            --toolbarbutton-active-background: transparent !important;
+            --toolbarbutton-background-color-active: transparent !important;
             /*--button-icon-fill: var(--general-color) !important;/**/
             --button-icon-stroke: var(--general-color) !important;
             --my-transform-hover: scale(1.2) !important;
@@ -967,7 +967,7 @@
                     position: absolute;
                     bottom: 0 !important;
                     background-image: linear-gradient(transparent, transparent),
-                        linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                        linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
                         var(--lwt-header-image, none), var(--lwt-additional-images,none),
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;

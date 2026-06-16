@@ -25,13 +25,13 @@
     }
 
     :is(#TabsToolbar) .tab-close-button:hover {
-        background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 40%, var(--border-contrast-color)) !important;
+        background-color: color-mix(in srgb, var(--toolbarbutton-background-color-hover) 40%, var(--my-scheme-border-color)) !important;
         fill: var(--general-color) !important;
     }
 
     :is(#TabsToolbar) .tab-close-button:hover,
     :root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) :is(#TabsToolbar) tab:not([selected]) .tab-close-button:hover{
-        background-color: color-mix(in srgb, var(--contrast-color) 50%, transparent) !important;
+        background-color: color-mix(in srgb, var(--my-scheme-color) 50%, transparent) !important;
     }
 }
 
@@ -47,13 +47,13 @@
             height: 12px !important;
             padding: 1px !important;
             background: var(--tab-selected-textcolor) !important;
-            fill: var(--contrast-color) !important;
+            fill: var(--my-scheme-color) !important;
             outline-color: transparent !important;
             top: -1px !important;
             inset-inline-start: 6px !important;
             
             &:hover {
-                fill: var(--contrast-color) !important;
+                fill: var(--my-scheme-color) !important;
                 background: var(--general-color) !important;
             }
         }
@@ -67,7 +67,7 @@
             border-radius: 2px !important;
 
             &:hover {
-                background-color: var(--contrast-color) !important;
+                background-color: var(--my-scheme-color) !important;
                 fill: var(--general-color) !important;
             }
         }

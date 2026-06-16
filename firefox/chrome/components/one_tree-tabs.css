@@ -52,9 +52,9 @@
             width: calc(100% - 8px);
             height: calc(100% - 4px);
             border-radius: var(--my-toolbar-border-radius) !important;
-            background-color: var(--toolbar-bgcolor);
+            background-color: var(--toolbar-background-color);
             outline: 1px solid var(--my-content-border-color) !important;
-            box-shadow: 0 0 1px var(--contrast-color) !important;
+            box-shadow: 0 0 1px var(--my-scheme-color) !important;
             outline-offset: -1px !important;
             pointer-events: none !important;
             
@@ -75,8 +75,8 @@
         #nav-bar-customization-target>toolbaritem:not(#urlbar-container) toolbarbutton,   /* Extensions and some default buttons */
         #nav-bar-overflow-button {
             -moz-window-dragging: no-drag !important;
-            margin-block-start: calc(0px - var(--toolbarbutton-inner-padding)) !important;
-            padding-block-start: calc(var(--toolbarbutton-inner-padding) + 4px) !important;
+            margin-block-start: calc(0px - var(--toolbarbutton-padding-inner)) !important;
+            padding-block-start: calc(var(--toolbarbutton-padding-inner) + 4px) !important;
         }
         
         /* Urlbar vertical align */
@@ -100,7 +100,7 @@
     #toolbar-menubar[autohide] #main-menubar {
         /*border-radius: 8px 0 0 8px !important;/**/
         height: calc(var(--toolbar-height-personal)) !important;
-        box-shadow: 1px 0px 5px var(--contrast-color) !important;
+        box-shadow: 1px 0px 5px var(--my-scheme-color) !important;
         clip-path: xywh(0 -4px calc(100% + 5px) calc(100% + 5px) round 8px 0 0 8px) !important;
     }
     
@@ -141,7 +141,7 @@
     /* 'Nav-bar' - 'bookmarks-bar' background color */
 
     #nav-bar, #PersonalToolbar {
-        background-color: var(--toolbar-bgcolor) !important;
+        background-color: var(--toolbar-background-color) !important;
     }
     
     @media (not -moz-pref("firefoxone.style_without_leftsidebar")) {
